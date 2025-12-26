@@ -21,5 +21,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Seed semua tabel
+        $this->call([
+            CigaretteSeeder::class,
+            FoodSeeder::class,
+            ActivitySeeder::class,
+            TransportSeeder::class,
+            BiographySeeder::class,
+            LocationStateSeeder::class,
+            PantryIngredientSeeder::class,
+            RecipeSeeder::class,
+            TeamsScheduleSeeder::class,
+            PersonalScheduleSeeder::class,
+            DailyLearningQuestionSeeder::class,
+        ]);
     }
 }

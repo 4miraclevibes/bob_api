@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "bob-api-collection",
+		"name": "Bob API",
+		"description": "Bob Personal Assistant API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cigarettes",
+			"item": [
+				{
+					"name": "Get All Cigarettes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cigarettes?type=purchase",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes"],
+							"query": [
+								{
+									"key": "type",
+									"value": "purchase",
+									"description": "purchase or consume"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Cigarette by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cigarettes/1",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Cigarette - Purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"purchase\",\n  \"brand\": \"Sampoerna\",\n  \"quantity\": 1,\n  \"price\": 38000,\n  \"total_price\": 38000,\n  \"notes\": \"Beli rokok\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cigarettes",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes"]
+						}
+					}
+				},
+				{
+					"name": "Create Cigarette - Consume",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"consume\",\n  \"quantity\": 1,\n  \"notes\": \"Ngerokok\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cigarettes",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes"]
+						}
+					}
+				},
+				{
+					"name": "Update Cigarette",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notes\": \"Updated notes\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cigarettes/1",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Cigarette",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cigarettes/1",
+							"host": ["{{base_url}}"],
+							"path": ["cigarettes", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Foods",
+			"item": [
+				{
+					"name": "Get All Foods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/foods?category=food",
+							"host": ["{{base_url}}"],
+							"path": ["foods"],
+							"query": [
+								{
+									"key": "category",
+									"value": "food"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Food by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/foods/1",
+							"host": ["{{base_url}}"],
+							"path": ["foods", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Food",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"category\": \"food\",\n  \"item_name\": \"Nasi Goreng\",\n  \"cost\": 25000,\n  \"quantity\": 1,\n  \"location\": \"Warung Makan Pak Budi\",\n  \"notes\": \"Nasi goreng spesial\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/foods",
+							"host": ["{{base_url}}"],
+							"path": ["foods"]
+						}
+					}
+				},
+				{
+					"name": "Update Food",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cost\": 30000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/foods/1",
+							"host": ["{{base_url}}"],
+							"path": ["foods", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Food",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/foods/1",
+							"host": ["{{base_url}}"],
+							"path": ["foods", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "Get All Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/activities",
+							"host": ["{{base_url}}"],
+							"path": ["activities"]
+						}
+					}
+				},
+				{
+					"name": "Get Current Activity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/activities?current=true",
+							"host": ["{{base_url}}"],
+							"path": ["activities"],
+							"query": [
+								{
+									"key": "current",
+									"value": "true"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Activity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"activity_type\": \"beli_makan\",\n  \"description\": \"Beli makan siang\",\n  \"location_status\": \"outside\",\n  \"started_at\": \"2024-12-26 12:00:00\",\n  \"is_active\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/activities",
+							"host": ["{{base_url}}"],
+							"path": ["activities"]
+						}
+					}
+				},
+				{
+					"name": "Return Home",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/activities/return-home",
+							"host": ["{{base_url}}"],
+							"path": ["activities", "return-home"]
+						}
+					}
+				},
+				{
+					"name": "Update Activity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"is_active\": false,\n  \"ended_at\": \"2024-12-26 15:00:00\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/activities/1",
+							"host": ["{{base_url}}"],
+							"path": ["activities", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/activities/1",
+							"host": ["{{base_url}}"],
+							"path": ["activities", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Transport",
+			"item": [
+				{
+					"name": "Get All Transport",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transport",
+							"host": ["{{base_url}}"],
+							"path": ["transport"]
+						}
+					}
+				},
+				{
+					"name": "Create Transport - Fuel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"fuel\",\n  \"vehicle_type\": \"motor\",\n  \"amount\": 50000,\n  \"description\": \"Isi bahan bakar 3 liter\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/transport",
+							"host": ["{{base_url}}"],
+							"path": ["transport"]
+						}
+					}
+				},
+				{
+					"name": "Create Transport - Service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"service\",\n  \"vehicle_type\": \"motor\",\n  \"amount\": 250000,\n  \"description\": \"Service motor rutin\",\n  \"service_items\": [\n    {\"item\": \"Oli mesin\", \"price\": 50000},\n    {\"item\": \"Ban belakang\", \"price\": 150000}\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/transport",
+							"host": ["{{base_url}}"],
+							"path": ["transport"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Biography",
+			"item": [
+				{
+					"name": "Get All Biography",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/biography?public_only=true",
+							"host": ["{{base_url}}"],
+							"path": ["biography"],
+							"query": [
+								{
+									"key": "public_only",
+									"value": "true"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Search Biography",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/biography?search=lahir",
+							"host": ["{{base_url}}"],
+							"path": ["biography"],
+							"query": [
+								{
+									"key": "search",
+									"value": "lahir"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Biography",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"category\": \"personal_info\",\n  \"title\": \"Tempat Lahir\",\n  \"content\": \"Jakarta, Indonesia\",\n  \"tags\": [\"lahir\", \"jakarta\"],\n  \"is_public\": true,\n  \"priority\": 10\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/biography",
+							"host": ["{{base_url}}"],
+							"path": ["biography"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Location State",
+			"item": [
+				{
+					"name": "Get Location State",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/location-state",
+							"host": ["{{base_url}}"],
+							"path": ["location-state"]
+						}
+					}
+				},
+				{
+					"name": "Update Location State",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"outside\",\n  \"last_activity\": \"beli makan\",\n  \"current_location\": \"Warung Makan\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/location-state",
+							"host": ["{{base_url}}"],
+							"path": ["location-state"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Pantry Ingredients",
+			"item": [
+				{
+					"name": "Get All Pantry Ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pantry-ingredients?active_only=true",
+							"host": ["{{base_url}}"],
+							"path": ["pantry-ingredients"],
+							"query": [
+								{
+									"key": "active_only",
+									"value": "true"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Low Stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pantry-ingredients?low_stock=true",
+							"host": ["{{base_url}}"],
+							"path": ["pantry-ingredients"],
+							"query": [
+								{
+									"key": "low_stock",
+									"value": "true"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Pantry Ingredient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ingredient_name\": \"beras\",\n  \"category\": \"grain\",\n  \"unit\": \"kg\",\n  \"quantity\": 5.0,\n  \"min_quantity\": 1.0,\n  \"purchase_price\": 15000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/pantry-ingredients",
+							"host": ["{{base_url}}"],
+							"path": ["pantry-ingredients"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Get All Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/recipes",
+							"host": ["{{base_url}}"],
+							"path": ["recipes"]
+						}
+					}
+				},
+				{
+					"name": "Get Recipe Recommendations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/recipes/recommendations",
+							"host": ["{{base_url}}"],
+							"path": ["recipes", "recommendations"]
+						}
+					}
+				},
+				{
+					"name": "Create Recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"recipe_name\": \"Nasi Goreng\",\n  \"category\": \"rice\",\n  \"difficulty\": \"easy\",\n  \"cooking_time\": 15,\n  \"servings\": 2,\n  \"ingredients\": [\n    {\"ingredient_name\": \"beras\", \"quantity\": 0.3, \"unit\": \"kg\"},\n    {\"ingredient_name\": \"minyak goreng\", \"quantity\": 0.05, \"unit\": \"liter\"}\n  ],\n  \"instructions\": \"1. Panaskan minyak...\",\n  \"tags\": [\"cepat\", \"mudah\"]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/recipes",
+							"host": ["{{base_url}}"],
+							"path": ["recipes"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Teams Schedules",
+			"item": [
+				{
+					"name": "Get All Teams Schedules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teams-schedules",
+							"host": ["{{base_url}}"],
+							"path": ["teams-schedules"]
+						}
+					}
+				},
+				{
+					"name": "Get Schedules by Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teams-schedules?date=2024-12-27",
+							"host": ["{{base_url}}"],
+							"path": ["teams-schedules"],
+							"query": [
+								{
+									"key": "date",
+									"value": "2024-12-27"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Teams Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"teams_event_id\": \"teams-001\",\n  \"title\": \"Daily Standup\",\n  \"description\": \"Daily standup meeting\",\n  \"start_time\": \"2024-12-27 09:00:00\",\n  \"end_time\": \"2024-12-27 09:30:00\",\n  \"location\": \"Microsoft Teams\",\n  \"status\": \"confirmed\",\n  \"attendees\": [\n    {\"name\": \"John Doe\", \"email\": \"john@example.com\"}\n  ],\n  \"meeting_link\": \"https://teams.microsoft.com/l/meetup-join/123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/teams-schedules",
+							"host": ["{{base_url}}"],
+							"path": ["teams-schedules"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Personal Schedules",
+			"item": [
+				{
+					"name": "Get All Personal Schedules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/personal-schedules",
+							"host": ["{{base_url}}"],
+							"path": ["personal-schedules"]
+						}
+					}
+				},
+				{
+					"name": "Get Schedules by Date (Combined)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schedules/by-date?date=2024-12-27",
+							"host": ["{{base_url}}"],
+							"path": ["schedules", "by-date"],
+							"query": [
+								{
+									"key": "date",
+									"value": "2024-12-27"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Personal Schedule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Minisoccer\",\n  \"description\": \"Minisoccer dengan teman\",\n  \"schedule_date\": \"2024-12-28\",\n  \"start_time\": \"19:00\",\n  \"end_time\": \"21:00\",\n  \"location\": \"Lapangan Futsal\",\n  \"activity_type\": \"minisoccer\",\n  \"reminder_before\": 30,\n  \"status\": \"scheduled\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/personal-schedules",
+							"host": ["{{base_url}}"],
+							"path": ["personal-schedules"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Daily Learning Questions",
+			"item": [
+				{
+					"name": "Get All Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/daily-learning-questions",
+							"host": ["{{base_url}}"],
+							"path": ["daily-learning-questions"]
+						}
+					}
+				},
+				{
+					"name": "Get Today's Question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/daily-learning-questions/today",
+							"host": ["{{base_url}}"],
+							"path": ["daily-learning-questions", "today"]
+						}
+					}
+				},
+				{
+					"name": "Search Topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/daily-learning-questions/search-topic?topic=promise",
+							"host": ["{{base_url}}"],
+							"path": ["daily-learning-questions", "search-topic"],
+							"query": [
+								{
+									"key": "topic",
+									"value": "promise"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"question\": \"Apa itu Design Pattern Singleton?\",\n  \"category\": \"design_pattern\",\n  \"difficulty\": \"intermediate\",\n  \"tags\": [\"design_pattern\", \"singleton\", \"oop\"],\n  \"keywords\": [\"singleton\", \"design pattern\"],\n  \"source\": \"Design Patterns Book\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/daily-learning-questions",
+							"host": ["{{base_url}}"],
+							"path": ["daily-learning-questions"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
+
